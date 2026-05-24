@@ -2,9 +2,34 @@
 
 ```mermaid
 flowchart TD
-    Usuario --> API_Gateway
-    API_Gateway --> Books_Service
-    API_Gateway --> Auth_Service
-    Books_Service --> Database
-    Auth_Service --> Database
+
+Client[Cliente / Postman / Frontend]
+
+Gateway[API Gateway (Spring Cloud Gateway)]
+
+BooksMS[Books Microservice]
+AuthMS[Auth Microservice]
+
+BooksController[Books Controller]
+BooksService[Books Service]
+BooksRepo[Books Repository]
+
+AuthController[Auth Controller]
+AuthService[Auth Service]
+
+DB[(Database)]
+
+Client --> Gateway
+
+Gateway --> BooksMS
+Gateway --> AuthMS
+
+BooksMS --> BooksController
+BooksController --> BooksService
+BooksService --> BooksRepo
+BooksRepo --> DB
+
+AuthMS --> AuthController
+AuthController --> AuthService
+AuthService --> DB
 ```
