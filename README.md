@@ -5,7 +5,7 @@ flowchart TD
 
 Client[Cliente / Postman / Frontend]
 
-Gateway[API Gateway (Spring Cloud Gateway)]
+Gateway[API Gateway Spring Cloud Gateway]
 
 BooksMS[Books Microservice]
 AuthMS[Auth Microservice]
