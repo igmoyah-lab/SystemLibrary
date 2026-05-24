@@ -1,0 +1,36 @@
+@apiBaseUrl = http://localhost:8080/api
+
+
+## Get all books
+GET {{apiBaseUrl}}/books
+
+## Get a book by ID
+GET {{apiBaseUrl}}/books/{id}
+
+## Create a new book
+POST {{apiBaseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "category": "Fiction",
+  "isbn": "978-0743273565"
+}
+
+
+## Update a book by ID
+
+PUT {{apiBaseUrl}}/books/{id}
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "category": "Classic Fiction",
+  "isbn": "978-0743273565"
+}
+
+## Delete a book by ID
+
+DELETE {{apiBaseUrl}}/books/{id}
