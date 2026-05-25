@@ -1,0 +1,41 @@
+@startuml
+title C3 - Sistema SystemLibrary
+
+package "SystemLibrary" {
+
+  package "Users Microservice" {
+    class AuthController
+    class UserController
+    class AuthService
+    class UserService
+    interface UserRepository
+    class User
+  }
+
+  package "Books Microservice" {
+    class BookController
+    class BookService
+    interface BookRepository
+    class Book
+  }
+
+  AuthController --> AuthService
+  UserController --> UserService
+  AuthService --> UserRepository
+  UserService --> UserRepository
+  UserRepository --> User
+
+  BookController --> BookService
+  BookService --> BookRepository
+  BookRepository --> Book
+
+  BookService ..> UserService : valida usuario / préstamo
+}
+
+database "PostgreSQL Users" as UsersDB
+database "PostgreSQL Books" as BooksDB
+
+UserRepository --> UsersDB
+BookRepository --> BooksDB
+
+@enduml
