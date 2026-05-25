@@ -20,16 +20,22 @@ El sistema se divide en dos microservicios independientes:
 
 ```mermaid
 flowchart TD
-    Cliente[Cliente / Postman / Frontend]
-    Users[Users Service]
-    Books[Books Service]
-    DBUsers[(PostgreSQL Users)]
-    DBBooks[(PostgreSQL Books)]
 
-    Cliente --> Users
-    Cliente --> Books
-    Users --> DBUsers
-    Books --> DBBooks
+A["Cliente / Postman"]
+
+A --> B["Users Microservice"]
+A --> C["Books Microservice"]
+
+B --> D[("PostgreSQL Users")]
+C --> E[("PostgreSQL Books")]
+
+B --> F["AuthController"]
+F --> G["AuthService"]
+G --> H["UserRepository"]
+
+C --> I["BookController"]
+I --> J["BookService"]
+J --> K["BookRepository"]
 ```
 
 ## Capas utilizadas

@@ -45,36 +45,25 @@ Funciones principales:
 
 # Arquitectura Microservicios
 
+
 ```mermaid
 flowchart TD
 
-Client[Cliente / Postman / Frontend]
-
+A["Cliente / Postman"]
 Gateway[API Gateway Spring Cloud Gateway]
 
-BooksMS[Books Microservice]
-AuthMS[Auth Microservice]
+A --> B["Users Microservice"]
+A --> C["Books Microservice"]
 
-BooksController[Books Controller]
-BooksService[Books Service]
-BooksRepo[Books Repository]
+B --> D[("PostgreSQL Users")]
+C --> E[("PostgreSQL Books")]
 
-AuthController[Auth Controller]
-AuthService[Auth Service]
+B --> F["AuthController"]
+F --> G["AuthService"]
+G --> H["UserRepository"]
 
-DB[(Database)]
-
-Client --> Gateway
-
-Gateway --> BooksMS
-Gateway --> AuthMS
-
-BooksMS --> BooksController
-BooksController --> BooksService
-BooksService --> BooksRepo
-BooksRepo --> DB
-
-AuthMS --> AuthController
-AuthController --> AuthService
-AuthService --> DB
+C --> I["BookController"]
+I --> J["BookService"]
+J --> K["BookRepository"]
+```
 ```
