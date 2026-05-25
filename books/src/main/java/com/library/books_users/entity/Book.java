@@ -1,4 +1,4 @@
-package com.library.books_users.model;
+package com.library.books_users.entity;
 
 import java.util.UUID;
 

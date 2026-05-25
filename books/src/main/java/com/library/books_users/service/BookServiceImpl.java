@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.library.books_users.dto.BookDto;
-import com.library.books_users.model.Book;
+import com.library.books_users.entity.Book;
 import com.library.books_users.repository.BookRepository;
 
 @Service

@@ -50,20 +50,44 @@ Funciones principales:
 flowchart TD
 
 A["Cliente / Postman"]
-Gateway[API Gateway Spring Cloud Gateway]
 
 A --> B["Users Microservice"]
 A --> C["Books Microservice"]
 
-B --> D[("PostgreSQL Users")]
-C --> E[("PostgreSQL Books")]
+subgraph USERS
+F["Controllers"]
+G["Service"]
+H["Repository"]
+I["Entity"]
+J["DTO"]
+K["Security / Filter"]
+L["Exception"]
+end
 
-B --> F["AuthController"]
-F --> G["AuthService"]
-G --> H["UserRepository"]
+subgraph BOOKS
+M["Controller"]
+N["Service"]
+O["Repository"]
+P["Model"]
+Q["DTO"]
+end
 
-C --> I["BookController"]
-I --> J["BookService"]
-J --> K["BookRepository"]
+B --> F
+F --> G
+G --> H
+H --> I
+
+B --> J
+B --> K
+B --> L
+
+C --> M
+M --> N
+N --> O
+O --> P
+C --> Q
+
+H --> R[("PostgreSQL Users")]
+O --> S[("PostgreSQL Books")]
 ```
 ```
