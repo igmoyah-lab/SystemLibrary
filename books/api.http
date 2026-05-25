@@ -1,36 +1,42 @@
-@apiBaseUrl = http://localhost:8080/api
+@booksUrl = http://localhost:8080
+@bookId = REEMPLAZA_CON_UUID_REAL
 
+### Listar todos los libros
+GET {{booksUrl}}/api/books
 
-## Get all books
-GET {{apiBaseUrl}}/books
+### Buscar libros por título
+GET {{booksUrl}}/api/books?title=Java
 
-## Get a book by ID
-GET {{apiBaseUrl}}/books/{id}
+### Buscar libros por autor
+GET {{booksUrl}}/api/books?author=Robert
 
-## Create a new book
-POST {{apiBaseUrl}}/books
+### Buscar libros por ISBN
+GET {{booksUrl}}/api/books?isbn=978-1234567890
+
+### Buscar libro por ID
+GET {{booksUrl}}/api/books/{{bookId}}
+
+### Crear libro
+POST {{booksUrl}}/api/books
 Content-Type: application/json
 
 {
-  "title": "The Great Gatsby",
-  "author": "F. Scott Fitzgerald",
-  "category": "Fiction",
-  "isbn": "978-0743273565"
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "category": "Programacion",
+  "isbn": "978-0132350884"
 }
 
-
-## Update a book by ID
-
-PUT {{apiBaseUrl}}/books/{id}
+### Actualizar libro
+PUT {{booksUrl}}/api/books/{{bookId}}
 Content-Type: application/json
 
 {
-  "title": "The Great Gatsby",
-  "author": "F. Scott Fitzgerald",
-  "category": "Classic Fiction",
-  "isbn": "978-0743273565"
+  "title": "Clean Code Updated",
+  "author": "Robert C. Martin",
+  "category": "Programacion",
+  "isbn": "978-0132350884"
 }
 
-## Delete a book by ID
-
-DELETE {{apiBaseUrl}}/books/{id}
+### Eliminar libro
+DELETE {{booksUrl}}/api/books/{{bookId}}

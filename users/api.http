@@ -1,0 +1,36 @@
+@usersUrl = http://localhost:8082
+@token = PEGA_AQUI_EL_TOKEN_DEL_LOGIN
+
+### Registrar usuario
+POST {{usersUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "ignacio",
+  "password": "123456"
+}
+
+### Login usuario
+POST {{usersUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "ignacio",
+  "password": "123456"
+}
+
+### Validar token JWT
+GET {{usersUrl}}/api/auth/validate
+Authorization: Bearer {{token}}
+
+### Listar libros desde users
+GET {{usersUrl}}/api/users/books
+
+### Buscar libros desde users por título
+GET {{usersUrl}}/api/users/books?title=Java
+
+### Buscar libros desde users por autor
+GET {{usersUrl}}/api/users/books?author=Robert
+
+### Buscar libros desde users por categoría
+GET {{usersUrl}}/api/users/books?category=Programacion
